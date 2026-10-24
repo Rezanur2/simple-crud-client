@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import UpdateUserDialog from "./UpdateUserDialog"
 
 const UserCard = ({ user }) => {
   const { _id } = user;
@@ -42,7 +43,7 @@ const UserCard = ({ user }) => {
         <Link href={`/users/${user._id}`} className="w-full">
           <Button className="w-full">View Event</Button>
         </Link>
-        <Button className="mx-4">Edit</Button>
+        <UpdateUserDialog user={user} />
         <Button
         onClick={()=>{handleDeleteUser(_id)}}
         variant="destructive">Delete</Button>
