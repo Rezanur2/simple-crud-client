@@ -7,22 +7,22 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import Link from "next/link"
 
-const UserCard = ({user}) => {
+const UserCard = ({ user }) => {
   return (
-    <Card className="relative mx-auto w-full max-w-sm pt-0">
-      <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
+    <Card className="relative mx-auto w-full max-w-sm pt-2">
       <CardHeader>
         <CardAction>
           <h2>No Action</h2>
         </CardAction>
         <CardTitle>{user.name}</CardTitle>
-        <CardDescription>
-          {user.email}
-        </CardDescription>
+        <CardDescription>{user.email}</CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button className="w-full">View Event</Button>
+        <Link href={`/users/${user._id}`} className="w-full">
+          <Button className="w-full">View Event</Button>
+        </Link>
       </CardFooter>
     </Card>
   )
